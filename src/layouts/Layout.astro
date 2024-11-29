@@ -1,0 +1,36 @@
+---
+import Contacto from '../components/Contacto.astro';
+import Experiencia from '../components/Experiencia.astro';
+import Formacion from '../components/Formacion.astro';
+import Habilidades from '../components/Habilidades.astro';
+import Header from '../components/Header.astro';
+import Menu from '../components/Menu.astro';
+import Proyectos from '../components/Proyectos.astro';
+import Referencias from '../components/Referencias.astro';
+import SobreMi from '../components/SobreMi.astro';
+
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Portfolio personal</title>
+	</head>
+	<body class="flex flex-col bg-gray-300">
+		<Menu />
+		<Header />
+		<SobreMi />
+		<Habilidades />
+		<Experiencia />
+		<Proyectos />
+		<Formacion />
+		<Referencias />
+		<Contacto />
+		<slot />
+	</body>
+</html>

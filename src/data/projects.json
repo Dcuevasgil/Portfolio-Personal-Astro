@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Twitter Clone",
+    "image": "../../public/Caratula_X.JPG",
+    "description": "Designed with a unique style, inspired by the main functionality of the platform. This project includes a feed of posts and a basic interaction system. It is a personalized representation of the original concept.",
+    "technologies": ["HTML5", "CSS3", "PHP"]
+  },
+  {
+    "name": "Portfolio",
+    "image": "../../public/portfolio.jpg",
+    "description": "A website created in Astro with a prior study of web design, generating documentation with Figma.",
+    "technologies": ["Astro 10.8.2", "Tailwind CSS", "Figma"]
+  }
+]
