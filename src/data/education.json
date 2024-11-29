@@ -1,0 +1,28 @@
+{
+  "studies": [
+    {
+      "title": "Higher Technician in Web Application Development",
+      "image": "../../public/Logo_pdf.svg",
+      "completionDate": "2023/2025",
+      "placeOrCertifiedBy": "Professional School Vedruna Sevilla"
+    },
+    {
+      "title": "Introduction to Programming in Python",
+      "image": "../../public/Logo_pdf.svg",
+      "completionDate": "",
+      "placeOrCertifiedBy": "IBM SkillBuild"
+    },
+    {
+      "title": "SQL Course",
+      "image": "../../public/Logo_pdf.svg",
+      "completionDate": "May - Jun 2024",
+      "placeOrCertifiedBy": "IBM SkillBuild"
+    },
+    {
+      "title": "Microsoft Power BI Course",
+      "image": "../../public/Logo_pdf.svg",
+      "completionDate": "Feb - Mar 2024",
+      "placeOrCertifiedBy": "IBM SkillBuild"
+    }
+  ]
+}
