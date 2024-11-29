@@ -1,0 +1,24 @@
+{
+  "experience": [
+    {
+      "title": "Web Content Administrator",
+      "company": "Large Company",
+      "period": "2023 - Present",
+      "responsibilities": [
+        "Design and structure content",
+        "Optimize search engines (SEO)",
+        "Maintain and update content"
+      ]
+    },
+    {
+      "title": "Content Analyst",
+      "company": "Medium-Sized Company",
+      "period": "Sept 2022 - 2023",
+      "responsibilities": [
+        "Design and structure content",
+        "Optimize search engines (SEO)",
+        "Maintain and update content"
+      ]
+    }
+  ]
+}

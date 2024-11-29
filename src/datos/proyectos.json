@@ -1,0 +1,14 @@
+[
+  {
+    "nombre": "Clon de Twitter",
+    "imagen": "../../public/Caratula_X.JPG",
+    "descripcion": "Diseñado con estilo propio, inspirado en la funcionalidad principal de la plataforma. Este proyecto incluye un feed de publicaciones y un sistema de interacción básico. Es una representación personalizada del concepto original.",
+    "tecnologias": ["HTML5", "CSS3", "PHP"]
+  },
+  {
+    "nombre": "Portfolio",
+    "imagen": "../../public/portfolio.jpg",
+    "descripcion": "Página web creada en Astro con un estudio previo de diseño web, generando la documentacion con Figma",
+    "tecnologias": ["Astro 10.8.2", "Tailwind CSS", "Figma"]
+  }
+]

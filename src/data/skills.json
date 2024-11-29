@@ -1,0 +1,52 @@
+{
+  "skills": [
+    {
+      "technology": "Astro",
+      "level": 2
+    },
+    {
+      "technology": "CSS",
+      "level": 5
+    },
+    {
+      "technology": "Figma",
+      "level": 5
+    },
+    {
+      "technology": "HTML",
+      "level": 5
+    },
+    {
+      "technology": "Java",
+      "level": 4
+    },
+    {
+      "technology": "JavaScript",
+      "level": 5
+    },
+    {
+      "technology": "PHP",
+      "level": 3
+    },
+    {
+      "technology": "Python",
+      "level": 4
+    },
+    {
+      "technology": "React",
+      "level": 4
+    },
+    {
+      "technology": "SQL",
+      "level": 5
+    },
+    {
+      "technology": "Spring",
+      "level": 5
+    },
+    {
+      "technology": "Tailwind",
+      "level": 5
+    }
+  ]
+}
