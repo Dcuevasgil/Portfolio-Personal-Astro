@@ -23,3 +23,30 @@
       </div>
   </section>
 </div>
+
+<script>
+    fetch('src/datos/sobreMi.json')
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error('Error al cargar el archivo JSON');
+            }
+            return response.json(); // Parsear el JSON
+        })
+        .then((data) => {
+
+            let titulo = document.getElementById('miTitulo');
+            titulo.textContent = data.titulo;
+
+            let descripcion = document.getElementById('miDescripcion')
+            descripcion.textContent = data.descripcion;
+
+            let enfoque = document.getElementById('miEnfoque')
+            enfoque.textContent = data.enfoque;
+
+            let idiomas = document.getElementById('misIdiomas')
+            idiomas.textContent = data.idiomas;
+        })
+        .catch((error) => {
+            console.error('Error:', error); // Manejo de errores
+        });
+</script>
