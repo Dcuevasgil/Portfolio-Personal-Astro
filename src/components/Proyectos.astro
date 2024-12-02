@@ -1,75 +1,107 @@
 ---
+type Tecnologia = {
+  url_aprendizaje: string;
+  icono: string;
+  nombre_tecnologia: string;
+};
+
+type Proyecto = {
+  nombre: string;
+  url_demo: string;
+  imagen: string;
+  descripcion: string;
+  tecnologias: Tecnologia[];
+};
 ---
 <div class="w-5/6 ml-[16.66%] min-h-full bg-gray-100">
   <!-- Sección "Formacion" -->
   <section id="proyectos" class="w-full py-5 bg-slate-100">
-      <div class="p-5 w-full h-full">
-      <h1 class="text-3xl md:text-4xl font-bold mb-10 text-left text-slate-600">Proyectos</h1>
+    <div class="p-5 w-full h-full">
+      <h1 class="text-3xl md:text-4xl font-bold mb-10 text-left text-slate-600">
+        Proyectos
+      </h1>
       <!-- Contenedor de cuadrícula -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 border-2 border-aquamarine-600 bg-white rounded-lg p-6">
-          <!-- Bloque 1 -->
-          <div class="p-4 border border-gray-200 rounded-lg shadow">
-          <h3 class="text-xl font-bold text-gray-800">Clon de X</h3>
-          <a href="http://localhost:3000/index.php">
-            <img src="../../public/Caratula_X.jpg" alt="" class="w-96 h-96 object-contain ml-16">
-          </a>
-          <p class="text-gray-600 mt-1">
-              <span class="font-medium">Descripcion</span><br>
-              Diseñado con estilo propio, inspirado en la funcionalidad principal de la plataforma. Este proyecto incluye un feed de publicaciones y un sistema de interacción básico. Es una representación personalizada del concepto original
-          </p>
-          <p class="text-gray-600 mt-1">
-              <span class="font-medium">Tecnologias</span><br>
-              <ul class="list-none list-inside text-gray-500 mb-4 flex gap-5 font-semibold">
-                <li>
-                    <a href="https://developer.mozilla.org/es/docs/Web/HTML">
-                      <img src="../../public/HTMLogo.svg" alt="" class="w-8 h-8 mt-4">
-                    </a>
-                </li>
-                <li>
-                    <a href="https://developer.mozilla.org/es/docs/Web/CSS">
-                      <img src="../../public/CSSLogo.svg" alt="" class="w-8 h-8 mt-4">
-                    </a>
-                </li>
-                <li>
-                    <a href="https://developer.mozilla.org/es/docs/Glossary/PHP">
-                     <img src="../../public/php_logo.png" alt="" class="w-8 h-8 mt-4">
-                    </a>
-                </li>
-            </ul>
-          </p>
-          </div>
-          
-          <!-- Bloque 2 -->
-          <div class="p-4 border border-gray-200 rounded-lg shadow">
-            <h3 class="text-xl font-bold text-gray-800">Mi portfolio</h3>
-            <a href="http://localhost:4321/">
-              <img src="../../public/portfolio.jpg" alt="" class="w-96 h-96 object-contain ml-16">
-            </a>
-            <p class="text-gray-600 mt-1">
-                <span class="font-medium">Descripcion</span><br>
-                Página web creada en Astro con un estudio previo de diseño web, generando la documentacion con Figma
-            </p>
-            <p class="text-gray-600 mt-1">
-                <span class="font-medium">Tecnologias</span><br>
-                <ul class="list-none list-inside text-gray-500 mb-4 flex gap-5 font-semibold">
-                  <li>
-                      <a href="https://docs.astro.build/en/getting-started/">
-                        <img src="../../public/AstroLogo.svg" alt="" class="w-8 h-8 mt-4">
-                      </a>
-                  </li>
-                  <li>
-                      <a href="https://tailwindcss.com/docs/installation">
-                        <img src="../../public/TailwindLogo.svg" alt="" class="w-8 h-8 mt-4">
-                      </a>
-                  </li>
-                  <li>
-                      <a href="https://www.figma.com/">
-                       <img src="../../public/FigmaLogo.svg" alt="" class="w-8 h-8 mt-4">
-                      </a>
-                  </li>
-              </ul>
-            </p>
-            </div>
+      <div id="grid-proyectos"
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 border-2 border-aquamarine-600 bg-white rounded-lg p-6"
+      >
+        <!-- Aquí se insertarán dinamicamente los proyectos -->
       </div>
+    </div>
   </section>
 </div>
+
+<script>
+  async function getProjects() {
+    try {
+      const response = await fetch('http://localhost:8084/api/v1/projects');
+
+      const proyectos = await response.json();
+      console.log(proyectos);
+
+      if (!response.ok) {
+        throw new Error('No se encontraron proyectos');
+      }
+    
+      const proyectosGrid = document.getElementById('grid-proyectos');
+
+      if (!proyectosGrid) {
+        console.error('No se encontró el contenedor "grid-proyectos" en el DOM.');
+        return;
+      }
+
+      proyectos.forEach((proyecto: { 
+        tecnologias: [
+          tech_name: string
+        ]; 
+        projectName: string; 
+        url_demo: string; 
+        picture: string; 
+        description: string; 
+      }) => {
+        const tecnologias = Array.isArray(proyecto.tecnologias) ? proyecto.tecnologias : [];
+
+          console.log(proyecto);
+        const projectBlock = document.createElement('div');
+        projectBlock.classList.add('p-4', 'border', 'border-gray-200', 'rounded-lg', 'shadow');
+
+        projectBlock.innerHTML = `
+          <h3 class="text-xl font-bold text-gray-800">${proyecto.projectName}</h3>
+          <a href="${proyecto.url_demo}">
+            <img
+              src="src/img/${proyecto.picture}"
+              alt="Imagen de ${proyecto.picture}"
+              class="w-96 h-96 object-contain ml-16"
+            />
+          </a>
+          <p class="text-gray-600 mt-1">
+            <span class="font-medium">Descripción</span><br />
+            ${proyecto.description}
+          </p>
+          <p class="text-gray-600 mt-1">
+            <span class="font-medium">Tecnologías</span><br />
+            <ul class="list-none list-inside text-gray-500 mb-4 gap-5 font-semibold">
+              ${tecnologias.map((tecnologia: { 
+                 
+              }) => `
+                <li>
+                  <img
+                    alt="${tecnologia.tech_name}"
+                    class="w-8 h-8 mt-4"
+                  />
+                </li>
+              `).join('')}
+            </ul>
+          </p>
+        `;
+
+        proyectosGrid.appendChild(projectBlock);
+      });
+    } catch (error) {
+      console.error('Error al cargar los proyectos:', error);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  getProjects();
+});
+</script>
